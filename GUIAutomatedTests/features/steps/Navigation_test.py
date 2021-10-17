@@ -90,12 +90,7 @@ def verify_nav_search_bar():
     print("link for Search is present and working as expected")
 
 
-def verify_nav_more_section():
-    more_link = driver.find_element(By.XPATH, "//span[@class='font-primary']")
-    more_link.click()
-    print("More link is active")
-    WebDriverWait(driver, 10).until(ec.presence_of_element_located((
-        By.XPATH, "//h1[contains(text(),'Blavity News is a community and platform for Black')]")))
+def verify_more_email_section():
     more_link_email = driver.find_element(By.XPATH, "//input[@placeholder='Email Address']")
     more_link_email.send_keys("test@gmail0.com")
     more_link_checkbox = driver.find_element(By.XPATH, "//input[@type='checkbox']")
@@ -107,30 +102,40 @@ def verify_nav_more_section():
     success_msg_on_click = driver.find_element(By.XPATH, "//p[@class='success-message text-silver']")
     if (success_msg_on_click.text is not None) and (success_msg_on_click.text != ""):
         print("Email section of more link is working as expected")
+
+
+def verify_more_politics():
     more_politics_link = driver.find_element(By.XPATH, "//a[normalize-space()='Politics']")
     more_politics_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("Politics - Blavity News"))
-    # print("Current Window Title for Politics is : ", driver.title)
     print("Link for Politics under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_news():
     more_news_link = driver.find_element(By.XPATH, "//a[normalize-space()='News']")
     more_news_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("News - Blavity News"))
     # print("Current Window Title for Politics is : ", driver.title)
     print("Link for News under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_op_ed():
     more_op_ed_link = driver.find_element(By.XPATH, "//a[@class='nav-link'][normalize-space()='Op-Eds']")
     more_op_ed_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("Opinion - Blavity News"))
     # print("Current Window Title for Politics is : ", driver.title)
     print("Link for Op-Eds under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_write_a_story():
     more_write_a_story_link = driver.find_element(By.XPATH, "//a[normalize-space()='Write a Story']")
     more_write_a_story_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("The Community for Black Creativity and News - Blavity News"))
     # print("Current Window Title for Write a Story is : ", driver.title)
     print("Link for Write a Story under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_terms():
     more_terms_link = driver.find_element(By.XPATH, "//a[normalize-space()='Terms & Conditions']")
     more_terms_link.click()
     # switch to the new tab being opened.
@@ -139,7 +144,9 @@ def verify_nav_more_section():
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     print("Link for Terms & Conditions under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_partner_with_us():
     more_partner_with_us_link = driver.find_element(By.XPATH, "//a[normalize-space()='Partner With Us']")
     more_partner_with_us_link.click()
     # switch to the new tab being opened.
@@ -148,20 +155,26 @@ def verify_nav_more_section():
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     print("Link for Partner With Us under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_culture():
     more_culture_link = driver.find_element(By.XPATH, "//a[normalize-space()='Culture']")
     more_culture_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("Culture - Blavity News"))
     # print("Current Window Title for Write a Story is : ", driver.title)
     print("Link for Culture under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_my_account():
     more_my_account_link = driver.find_element(By.XPATH, "//a[normalize-space()='My Account']")
     more_my_account_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("The Community for Black Creativity and News - Blavity News"))
     # print("Current Window Title for Write a Story is : ", driver.title)
     print("Link for My Account under More Section is working as expected")
     driver.back()
-    more_link.click()
+
+
+def verify_more_careers():
     more_careers_link = driver.find_element(By.XPATH, "//a[@class='nav-link'][normalize-space()='Careers']")
     more_careers_link.click()
     # switch to the new tab being opened.
@@ -170,13 +183,17 @@ def verify_nav_more_section():
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     print("Link for Careers under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_life_style():
     more_life_style_link = driver.find_element(By.XPATH, "//a[@class='nav-link'][normalize-space()='Lifestyle']")
     more_life_style_link.click()
     WebDriverWait(driver, 40).until(ec.title_is("Lifestyle - Blavity News"))
     # print("Current Window Title for Write a Story is : ", driver.title)
     print("Link for LifeStyle under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_privacy_policies():
     more_privacy_policies_link = driver.find_element(By.XPATH, "//a[normalize-space()='Privacy Policies']")
     more_privacy_policies_link.click()
     # switch to the new tab being opened.
@@ -185,7 +202,9 @@ def verify_nav_more_section():
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     print("Link for Privacy Policy under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_shop():
     more_shop_link = driver.find_element(By.XPATH, "//a[normalize-space()='Shop']")
     more_shop_link.click()
     # switch to the new tab being opened.
@@ -194,38 +213,104 @@ def verify_nav_more_section():
     driver.close()
     driver.switch_to.window(driver.window_handles[0])
     print("Link for Shop under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_social_justice():
     more_social_justice_link = driver.find_element(By.XPATH, "//a[normalize-space()='Social Justice']")
     more_social_justice_link.click()
     WebDriverWait(driver, 40).until(ec.title_contains("Blavity"))
     # print("Current Window Title for Write a Story is : ", driver.title)
     print("Link for Social Justice under More Section is working as expected")
-    more_link.click()
+
+
+def verify_more_mastercard():
     more_mastercard_link = driver.find_element(By.XPATH, "//a[normalize-space()='Blavity x Mastercard']")
     more_mastercard_link.click()
     WebDriverWait(driver, 40).until(ec.title_contains("Blavity"))
     # print("Current Window Title for Write a Story is : ", driver.title)
     print("Link for Blavity x Mastercard under More Section is working as expected")
-    news_link = driver.find_element(By.XPATH, "//a[@class='nav-link text-white'][normalize-space()='News']")
+    driver.back()
+    WebDriverWait(driver, 40).until(ec.title_contains("Blavity"))
 
-    news_link.click()
-    WebDriverWait(driver, 40).until(ec.title_is("News - Blavity News"))
 
-    # more_text = driver.find_element(
-    #     By.XPATH, "//h6[contains(text(),'Blavity is a community of the most exceptional mul')]")
-    # actions.move_to_element(more_text)
-    # more_instagram_link = driver.find_element(
-    # By.XPATH, "//header[@class='app-header bg-black position-sticky']//div[@class='d-desktop-none']//a[1]")
-    # # more_instagram.location_once_scrolled_into_view
-    # more_link.click()
-    # WebDriverWait(driver, 40).until(
-    #     ec.presence_of_element_located((By.XPATH,
-    #     "//header[@class='app-header bg-black position-sticky']//div[@class='d-desktop-none']//a[1]")))
-    # #
-    # # time.sleep(2)
-    # more_instagram_link.click()
-    # # more_instagram
-    # verify_blavity_footer_instagram()
+def verify_more_disclaimer_text():
+    more_disclaimer_text = driver.find_element(
+        By.XPATH, "//h6[contains(text(),'Blavity is a community of the most exceptional mul')]")
+    if more_disclaimer_text.is_displayed():
+        print("disclaimer anc copyright text is displayed under more section.")
+
+
+def verify_more_instagram_link():
+    more_instagram = driver.find_element(By.XPATH,
+                                         "//div[@class='dropdown-content-footer d-none d-desktop-block']//a[1]")
+    more_instagram.click()
+    print("clicked on instagram link")
+    verify_blavity_footer_instagram()
+
+
+def verify_more_twitter_link():
+    more_twitter = driver.find_element(By.XPATH,
+                                         "//div[@class='dropdown-content-footer d-none d-desktop-block']//a[2]")
+    more_twitter.click()
+    print("clicked on twitter link")
+    verify_blavity_footer_twitter()
+
+
+def verify_more_facebook_link():
+    more_facebook = driver.find_element\
+        (By.XPATH, "//ul[@class='navbar-nav d-desktop-flex align-items-center']//a[3]")
+    more_facebook.click()
+    print("clicked on facebook link")
+    verify_blavity_footer_facebook()
+
+
+def verify_more_blavity_image():
+    more_blavity_image = driver.find_element\
+        (By.XPATH, "//div[@class='d-flex justify-content-end text-white']//img[@title='Blavity']")
+    if more_blavity_image.is_displayed():
+        print("under more section image of blavity is displayed.")
+
+def verify_nav_more_section():
+    more_link = driver.find_element(By.XPATH, "//span[@class='font-primary']")
+    more_link.click()
+    print("More link is active")
+    WebDriverWait(driver, 10).until(ec.presence_of_element_located((
+        By.XPATH, "//h1[contains(text(),'Blavity News is a community and platform for Black')]")))
+    verify_more_email_section()
+    verify_more_politics()
+    more_link.click()
+    verify_more_news()
+    more_link.click()
+    verify_more_op_ed()
+    more_link.click()
+    verify_more_write_a_story()
+    more_link.click()
+    verify_more_terms()
+    more_link.click()
+    verify_more_partner_with_us()
+    more_link.click()
+    verify_more_culture()
+    more_link.click()
+    verify_more_my_account()
+    more_link.click()
+    verify_more_careers()
+    more_link.click()
+    verify_more_life_style()
+    more_link.click()
+    verify_more_privacy_policies()
+    more_link.click()
+    verify_more_shop()
+    more_link.click()
+    verify_more_social_justice()
+    more_link.click()
+    verify_more_mastercard()
+    more_link.click()
+    verify_more_disclaimer_text()
+    verify_more_instagram_link()
+    verify_more_twitter_link()
+    verify_more_facebook_link()
+    verify_more_blavity_image()
+    print("verified all links in more section.")
 
 
 def verify_nav_bar_links():
@@ -247,7 +332,7 @@ def verify_footer_presence():
     footer_news_page = driver.find_element(By.XPATH,
                                            "//footer[@class='app-footer text-center text-desktop-left text-white']")
     actions.move_to_element(footer_news_page).perform()
-    if footer_news_page.is_displayed() is True:
+    if footer_news_page.is_displayed():
         print("footer section is displayed on news page")
 
 
