@@ -98,6 +98,14 @@ def step_impl(context):
     verify_footer_presence()
 
 
+
+@then('verifying page activities when "{slug_value}" value is passed')
+def step_impl(context, slug_value):
+  print("inside steps ",slug_value)
+  verify_navigation_slug_and_page_load(slug_value)
+
+
+
 @then('close the browser')
 def step_impl(context):
     print("closing the browser instance")

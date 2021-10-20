@@ -2,7 +2,7 @@ from home_page_test import *
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as ec
 
 
@@ -334,6 +334,57 @@ def verify_footer_presence():
     actions.move_to_element(footer_news_page).perform()
     if footer_news_page.is_displayed():
         print("footer section is displayed on news page")
+
+
+
+def verify_navigation_slug_and_page_load(slug_value):
+    print("in the function verify_navigation_slug_and_page_load and value is :",slug_value)
+    base_url = "https://staging.blavity.com"
+    slug_value1 = "megan-thee-stallion-says-she-plans-to-open-assisted-living-facilities-after-graduating-from-college"
+    slug_value2 = "singer-nevaeh-jolie-comes-out-as-transgender-it-feels-like-im-saying-goodbye-but-im-saying-hello"
+    slug_value3 = "hear-the-irony-roar-as-oj-simpson-weighs-in-on-tiger-king-that-ladys-husband-is-tiger-sashimi-right-now"
+    slug_value4 = "dawn-staley-earns-22-million-contract-becomes-highest-paid-black-head-coach-in-womens-basketball"
+    formed_url = base_url+"/"+slug_value
+    print("formed url: ",formed_url)
+    driver.get(formed_url)
+    WebDriverWait(driver, 40).until(ec.title_contains("Blavity"))
+    print("2 : page is loaded")
+    print("title of the page ",driver.title)
+    temp_split = driver.title.split(" -")
+    print("temp_split :", temp_split[0])
+    web_element_title = driver.find_element(By.CLASS_NAME, "article-title")
+    print("webelement title :",web_element_title.text)
+    article_title_str = web_element_title.text
+    if article_title_str==temp_split[0]:
+        print("article title and title of the page do match")
+    print("3 : verification done for comparison of page title and article title")
+    read_full_article_button = driver.find_element(By.XPATH, "(//button[normalize-space()='Read Full Article'])[1]")
+    actions = ActionChains(driver)
+    actions.move_to_element(read_full_article_button).perform()
+    try:
+        pop_up_close_button = driver.find_element(By.XPATH, "//img[@data-pin-nopin='true']")
+        if pop_up_close_button.is_displayed():
+            pop_up_close_button.click()
+            print("clicked on close button of pop up")
+    # NoSuchElementException thrown if not present
+    except NoSuchElementException:
+        print("pop-up does not exist")
+    if read_full_article_button.is_displayed():
+        print("4. Read Full Article Button is displayed")
+    read_full_article_button.click()
+    WebDriverWait(driver, 40).until(
+        ec.presence_of_element_located((By.XPATH, "(//span[contains(text(),'Read Comments')])[1]")))
+    read_comments_button = driver.find_element(By.XPATH, "(//span[contains(text(),'Read Comments')])[1]")
+    actions.move_to_element(read_comments_button).perform()
+    read_comments_button.click()
+
+    WebDriverWait(driver, 40).until(
+        ec.presence_of_element_located((By.XPATH, "//span[contains(text(),'Hide Comments')]")))
+    hide_comments_button = driver.find_element(By.XPATH, "//span[contains(text(),'Hide Comments')]")
+    if hide_comments_button.is_displayed():
+        print("5. comments are loaded")
+
+
 
 
 def exit_browser():
