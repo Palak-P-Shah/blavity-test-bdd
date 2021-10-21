@@ -1,6 +1,6 @@
 from behave import *
 from Navigation_test import *
-
+from common_pages_test import *
 
 @given('url is launched')
 def step_impl(context):
@@ -98,12 +98,40 @@ def step_impl(context):
     verify_footer_presence()
 
 
-
 @then('verifying page activities when "{slug_value}" value is passed')
 def step_impl(context, slug_value):
-  print("inside steps ",slug_value)
-  verify_navigation_slug_and_page_load(slug_value)
+    print("inside steps ", slug_value)
+    verify_navigation_slug_and_page_load(slug_value)
 
+
+@then('verify whether News page is as required')
+def step_impl(context):
+    print("inside steps News Page")
+    verify_news_page()
+
+
+@then('verify whether Op-Eds page is as required')
+def step_impl(context):
+    print("inside steps opinion Page")
+    verify_opinion_page()
+
+
+@then('verify whether Lifestyle page is as required')
+def step_impl(context):
+    print("inside steps Lifestyle Page")
+    verify_life_style_page()
+
+
+@then('verify whether Politics page is as required')
+def step_impl(context):
+    print("inside steps Politics Page")
+    verify_politics_page()
+
+
+@then('verify whether Culture page is as required')
+def step_impl(context):
+    print("inside steps Culture Page")
+    verify_culture_page()
 
 
 @then('close the browser')

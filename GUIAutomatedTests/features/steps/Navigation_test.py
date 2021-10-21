@@ -333,7 +333,7 @@ def verify_footer_presence():
                                            "//footer[@class='app-footer text-center text-desktop-left text-white']")
     actions.move_to_element(footer_news_page).perform()
     if footer_news_page.is_displayed():
-        print("footer section is displayed on news page")
+        print("footer section is displayed on this page")
 
 
 

@@ -1,3 +1,4 @@
+from selenium.common.exceptions import NoSuchElementException
 
 from environment import *
 
@@ -23,6 +24,15 @@ def page_load():
 
 
 def post_page_load_pop_up():
+    try:
+        driver.switch_to.frame("sp_message_iframe_565136")
+        pop_up_text = driver.find_element(By.XPATH, "//p[normalize-space()='We value your privacy']")
+        if pop_up_text.is_displayed():
+            accept_button = driver.find_element(By.XPATH, "//button[@title='Accept']")
+            accept_button.click()
+        driver.switch_to.parent_frame()
+    except NoSuchElementException:
+        print("blavity news privacy pop-up does not exist")
     # b = driver.find_element_by_xpath(
     #     "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
     # driver.execute_script("arguments[0].click();", b)
