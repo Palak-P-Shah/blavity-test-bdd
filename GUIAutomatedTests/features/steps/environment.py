@@ -8,6 +8,8 @@ import time
 options = Options()
 options.headless = False
 options.add_argument('--start-maximized')
+# options.add_argument("--disable-infobars")
+options.add_argument("--disable-notifications")
 #options.add_argument("--headless")
 options.add_argument("--window-size=1920x1080")
 user_agent = \
@@ -18,11 +20,11 @@ options.add_argument('user-agent={0}'.format(user_agent))
 
 service = Service("C:\\exe installer\\chrome driver\\chromedriver_win32\\chromedriver.exe")
 
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=service, options=options)
 
 # while deployment
 # driver = webdriver.Chrome(ChromeDriverManager().install())
 
 url_name = "https://staging.blavity.com/"
-
+#url_name = "https://blavity.com/"
 actions = ActionChains(driver)

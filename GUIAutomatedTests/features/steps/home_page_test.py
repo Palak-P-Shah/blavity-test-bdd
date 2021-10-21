@@ -25,6 +25,12 @@ def page_load():
 
 def post_page_load_pop_up():
     try:
+        event_promo_pop_up = driver.find_element_by_xpath(
+            "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
+        driver.execute_script("arguments[0].click();", event_promo_pop_up)
+    except NoSuchElementException:
+        print("event promo pop-up does not exist")
+    try:
         driver.switch_to.frame("sp_message_iframe_565136")
         pop_up_text = driver.find_element(By.XPATH, "//p[normalize-space()='We value your privacy']")
         if pop_up_text.is_displayed():
@@ -33,9 +39,7 @@ def post_page_load_pop_up():
         driver.switch_to.parent_frame()
     except NoSuchElementException:
         print("blavity news privacy pop-up does not exist")
-    # b = driver.find_element_by_xpath(
-    #     "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
-    # driver.execute_script("arguments[0].click();", b)
+
     footer_xpath = driver.find_element(By.XPATH, "//button[text()='Accept']")
     driver.execute_script("arguments[0].click();", footer_xpath)
     assert_equal(driver.title, "The Community for Black Creativity and News - Blavity News")
