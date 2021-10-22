@@ -47,9 +47,12 @@ def post_click_load_more_verify_story(page_value):
     blavity_page_link_url = link.get_attribute('href')
     if (blavity_page_link_url is None) or (blavity_page_link_url == ""):
         print("particular blavity " + page_value + " link is not there")
+    time.sleep(2)
     driver.get(blavity_page_link_url)
     # driver.execute_script("window.open("+b[z].get_attribute('href')+");")
-    WebDriverWait(driver, 40).until(ec.presence_of_element_located((By.XPATH, "/html/head/title")))
+    time.sleep(3)
+    WebDriverWait(driver, 40).until(ec.title_contains("Blavity"))
+    #WebDriverWait(driver, 40).until(ec.presence_of_element_located((By.XPATH, "//figure[@class='featured-image-wrapper']")))
     print("Current window title for blavity story: " + driver.title)
     driver.back()
     print("After clicking load more button, the article link and page is displayed as expected")
@@ -89,9 +92,12 @@ def verify_each_story(page_value):
         blavity_page_link_url = link.get_attribute('href')
         if (blavity_page_link_url is None) or (blavity_page_link_url == ""):
             print("particular blavity "+page_value+" link is not there")
+        time.sleep(2)
         driver.get(blavity_page_link_url)
         # driver.execute_script("window.open("+b[z].get_attribute('href')+");")
-        WebDriverWait(driver, 40).until(ec.presence_of_element_located((By.XPATH, "/html/head/title")))
+        time.sleep(3)
+        WebDriverWait(driver, 40).until(ec.title_contains("Blavity"))
+        # WebDriverWait(driver, 40).until(ec.presence_of_element_located((By.XPATH, "html/head/title")))
         print("Current window title for blavity story: " + driver.title)
         driver.back()
         count += 1
@@ -165,21 +171,21 @@ def verify_culture_page():
     print("More link is active")
     more_page_link = driver.find_element(By.XPATH, "//a[normalize-space()='"+page_value+"']")
     more_page_link.click()
-    WebDriverWait(driver, 5).until(ec.presence_of_element_located(
+    WebDriverWait(driver, 10).until(ec.presence_of_element_located(
         (By.XPATH, "//h2[contains(text(),'Blavity is a tech company for forward thinking Bla')]")))
     verify_each_story(page_value)
     verify_load_more_stories()
     post_click_load_more_verify_story(page_value)
     print("all the links of blavity "+page_value+" section are working correctly, including load more button")
 
-
+#
 # environment()
 # page_load()
 # post_page_load_pop_up()
-# verify_opinion_page()
-# verify_news_page
-# verify_life_style_page()
+# # verify_opinion_page()
+# # verify_news_page()
+# # verify_life_style_page()
 # verify_politics_page()
-# verify_culture_page()
+# # verify_culture_page()
 # verify_footer_presence()
 # driver.quit()
