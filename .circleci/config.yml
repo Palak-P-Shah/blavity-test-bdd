@@ -33,7 +33,7 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      - run: pip install -r requirements/dev.txt
+      - run: pip install -r requirements.txt
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run:
