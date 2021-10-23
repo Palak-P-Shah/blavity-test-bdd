@@ -12,9 +12,8 @@ orbs:
   # Orb commands and jobs help you with common scripting around a language/tool
   # so you dont have to copy and paste it everywhere.
   # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-  orb:
     python: circleci/python@1.2
-    browser-tools: circleci/browser-tools@2.1
+    browser-tools: circleci/browser-tools@1.2.3
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -34,11 +33,13 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run:
           name: Run tests
           command: |  # use pipenv to install dependencies
+            google-chrome --version
             chromedriver --version
-            chrome --version
             behave ./GUIAutomatedTests/features navBar.feature
 
 # Invoke jobs via workflows
