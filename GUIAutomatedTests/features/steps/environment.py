@@ -1,4 +1,5 @@
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.utils import ChromeType
 from selenium import webdriver
 #from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
@@ -32,7 +33,7 @@ options.add_argument('--window-size=1920x1080')
 # driver = webdriver.Chrome(service=service, options=options)
 
 # while deployment
-driver = webdriver.Chrome(ChromeDriverManager("2.36").install(),options=options)
+driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.GOOGLE).install(),options=options)
 
 url_name = "https://staging.blavity.com/"
 #url_name = "https://blavity.com/"
