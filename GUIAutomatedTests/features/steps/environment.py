@@ -32,7 +32,7 @@ options.add_argument('--window-size=1920x1080')
 # driver = webdriver.Chrome(service=service, options=options)
 
 # while deployment
-driver = webdriver.Chrome(ChromeDriverManager().install(),options=options)
+driver = webdriver.Chrome(ChromeDriverManager("2.36").install(),options=options)
 
 url_name = "https://staging.blavity.com/"
 #url_name = "https://blavity.com/"
