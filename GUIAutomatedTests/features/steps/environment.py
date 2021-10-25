@@ -21,8 +21,8 @@ user_agent = \
     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 PTST/1.0'
 options.add_argument('user-agent={0}'.format(user_agent))
 # use this code below to execute headless state
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-
+#driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+driver = webdriver.Chrome("/home/circleci/.wdm/drivers/chromedriver/linux64/95.0.4638.17",options=options)
 # service = Service("C:\\exe installer\\chrome driver\\chromedriver_win32\\chromedriver.exe")
 
 # driver = webdriver.Chrome(service=service, options=options)
