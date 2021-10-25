@@ -40,7 +40,7 @@ jobs:
           name: Run tests
           
           command: |  # use pipenv to install dependencies
-           sudo chmod 777 /usr/bin/chromedriver
+           sudo chmod 777 /usr/bin/google-chrome
            # google-chrome --version
            # chromedriver --version
             behave ./GUIAutomatedTests/features navBar.
