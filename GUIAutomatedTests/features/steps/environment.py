@@ -10,8 +10,8 @@ options = Options()
 options.headless = True
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
-options.binary_location='GUIAutomatedTests/ChromeExe/linux/chromedriver_linux64/chromedriver'
-print("Binary Location",options.binary_location)
+#options.binary_location='GUIAutomatedTests/ChromeExe/linux/chromedriver_linux64/chromedriver'
+#print("Binary Location",options.binary_location)
 options.add_argument('--start-maximized')
 # options.add_argument("--disable-infobars")
 options.add_argument('--disable-notifications')
