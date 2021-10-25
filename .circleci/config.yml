@@ -39,8 +39,8 @@ jobs:
       - run:
           name: Run tests
           command: |  # use pipenv to install dependencies
-            google-chrome --version
-            chromedriver --version
+           # google-chrome --version
+           # chromedriver --version
             behave ./GUIAutomatedTests/features navBar.
       - store_artifacts:
                   path: /tmp/test-results
