@@ -8,12 +8,13 @@ import time
 options = Options()
 options.headless = True
 options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--start-maximized')
 # options.add_argument("--disable-infobars")
 options.add_argument("--disable-notifications")
 # added these 3 lines for circleci linux
 options.add_argument('--headless')
-options.add_argument('--disable-dev-shm-usage')
+
 # added these 3 lines above for circleci linux
 #options.add_argument("--headless")
 options.add_argument("--window-size=1920x1080")
