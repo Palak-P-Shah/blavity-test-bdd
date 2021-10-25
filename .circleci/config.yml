@@ -38,10 +38,13 @@ jobs:
      # - browser-tools/install-chromedriver
       - run:
           name: Run tests
+          
           command: |  # use pipenv to install dependencies
+           sudo chmod 777 /usr/bin/chromedriver
            # google-chrome --version
            # chromedriver --version
             behave ./GUIAutomatedTests/features navBar.
+          
       - store_artifacts:
                   path: /tmp/test-results
                   destination: artifact-file
