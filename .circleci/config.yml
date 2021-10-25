@@ -41,7 +41,11 @@ jobs:
           command: |  # use pipenv to install dependencies
             google-chrome --version
             chromedriver --version
-            behave ./GUIAutomatedTests/features navBar.feature
+            behave ./GUIAutomatedTests/features navBar.
+      - store_artifacts:
+                  path: test-results
+      - store_test_results:
+                  path: test-results
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
