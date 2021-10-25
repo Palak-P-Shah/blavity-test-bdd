@@ -40,7 +40,7 @@ jobs:
           name: Run tests
           
           command: |  # use pipenv to install dependencies
-           sudo chmod 777 /usr/bin/google-chrome
+           sudo chmod 777 /home/circleci/.wdm/drivers/chromedriver/linux64/95.0.4638.17
            # google-chrome --version
            # chromedriver --version
             behave ./GUIAutomatedTests/features navBar.
