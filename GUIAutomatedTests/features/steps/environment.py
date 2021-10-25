@@ -1,5 +1,6 @@
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
+#from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.service import Service
@@ -24,14 +25,14 @@ options.add_argument('--window-size=1920x1080')
 #     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 PTST/1.0'
 # options.add_argument('user-agent={0}'.format(user_agent))
 # use this code below to execute headless state
-driver = webdriver.Chrome(options=options,executable_path='GUIAutomatedTests/ChromeExe/linux/chromedriver_linux64/chromedriver')
+#driver = webdriver.Chrome(options=options,executable_path='GUIAutomatedTests/ChromeExe/linux/chromedriver_linux64/chromedriver')
 #driver = webdriver.Chrome("/home/circleci/.wdm/drivers/chromedriver/linux64/95.0.4638.17",options=options)
 # service = Service("C:\\exe installer\\chrome driver\\chromedriver_win32\\chromedriver.exe")
 
 # driver = webdriver.Chrome(service=service, options=options)
 
 # while deployment
-# driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager().install(),options=options)
 
 url_name = "https://staging.blavity.com/"
 #url_name = "https://blavity.com/"
