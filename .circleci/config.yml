@@ -34,14 +34,14 @@ jobs:
     steps:
       - checkout
       - run: pip install -r requirements.txt
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      #- browser-tools/install-chrome
+      #- browser-tools/install-chromedriver
       - run:
           name: Run tests
           
           command: |  # use pipenv to install dependencies
-            google-chrome --version
-            chromedriver --version
+            #google-chrome --version
+            #chromedriver --version
             sudo chmod 777 '/usr/local/bin/chromedriver'
            
             behave ./GUIAutomatedTests/features navBar.
