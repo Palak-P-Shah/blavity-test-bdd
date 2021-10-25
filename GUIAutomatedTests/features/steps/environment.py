@@ -22,7 +22,7 @@ user_agent = \
 options.add_argument('user-agent={0}'.format(user_agent))
 # use this code below to execute headless state
 #driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-driver = webdriver.Chrome('/usr/bin/google-chrome',options=options)
+driver = webdriver.Chrome('GUIAutomatedTests/ChromeExe/linux/chromedriver_linux64/chromedriver',options=options)
 # service = Service("C:\\exe installer\\chrome driver\\chromedriver_win32\\chromedriver.exe")
 
 # driver = webdriver.Chrome(service=service, options=options)
