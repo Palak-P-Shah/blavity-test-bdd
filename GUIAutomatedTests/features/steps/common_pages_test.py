@@ -178,14 +178,14 @@ def verify_culture_page():
     post_click_load_more_verify_story(page_value)
     print("all the links of blavity "+page_value+" section are working correctly, including load more button")
 
-#
+
 # environment()
 # page_load()
 # post_page_load_pop_up()
 # # verify_opinion_page()
-# # verify_news_page()
+# verify_news_page()
 # # verify_life_style_page()
-# verify_politics_page()
+# # verify_politics_page()
 # # verify_culture_page()
 # verify_footer_presence()
-# driver.quit()
+# # driver.quit()

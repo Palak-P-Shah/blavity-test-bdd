@@ -31,7 +31,6 @@ def post_page_load_pop_up():
     except NoSuchElementException:
         print("event promo pop-up does not exist")
     try:
-        time.sleep(2)
         driver.switch_to.frame("sp_message_iframe_565136")
         pop_up_text = driver.find_element(By.XPATH, "//p[normalize-space()='We value your privacy']")
         if pop_up_text.is_displayed():
