@@ -1,12 +1,13 @@
 pipeline {
+	
+    stages 
+    {
 	stage('Initialize')
 	{
         	def dockerHome = tool 'test-docker'
         	env.PATH = "${dockerHome}/bin:${env.PATH}"
     	}
-    agent { docker { image 'python:3.5.1' } }
-    stages 
-    {
+    	agent { docker { image 'python:3.5.1' } }
         stage('build') 
 	{
             steps 
