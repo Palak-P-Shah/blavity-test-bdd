@@ -26,7 +26,8 @@ def page_load():
 
 def post_page_load_pop_up():
     try:
-        event_promo_pop_up = driver.find_element_by_xpath(
+        event_promo_pop_up = driver.find_element(
+            By.XPATH,
             "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
         driver.execute_script("arguments[0].click();", event_promo_pop_up)
     except NoSuchElementException:

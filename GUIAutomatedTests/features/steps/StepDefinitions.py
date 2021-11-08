@@ -1,6 +1,7 @@
 from behave import *
-from Navigation_test import *
 from common_pages_test import *
+from blavity_u_page_test import *
+
 
 @given('url is launched')
 def step_impl(context):
@@ -132,6 +133,12 @@ def step_impl(context):
 def step_impl(context):
     print("inside steps Culture Page")
     verify_culture_page()
+
+
+@then('verify whether BlavityU page is as required')
+def step_impl(context):
+    print("inside steps Culture Page")
+    verify_blavity_u_page()
 
 
 @then('close the browser')

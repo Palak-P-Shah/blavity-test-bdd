@@ -66,6 +66,7 @@ def verify_each_story(page_value):
             page_value = "Opinion"
         WebDriverWait(driver, 10).until(
             ec.presence_of_element_located((By.XPATH, "//h1[normalize-space()='"+page_value+"']")))
+        assert ec.presence_of_element_located((By.XPATH, "//h1[normalize-space()='"+page_value+"']")).isDisplayed(), "header is not present of the "+page_value+" page"
         temp_string = str(count + 1)
         temp_xpath = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/section[2]/div[1]/div[" + temp_string +\
                      "]/div[2]/div[1]/div[2]/a[1]"
@@ -167,9 +168,11 @@ def verify_culture_page():
     print("page is", page_value)
     time.sleep(2)
     more_link = driver.find_element(By.XPATH, "//span[@class='font-primary']")
+    assert more_link.is_displayed(), "more link is not displayed in the Navigation Bar"
     more_link.click()
     print("More link is active")
     more_page_link = driver.find_element(By.XPATH, "//a[normalize-space()='"+page_value+"']")
+    assert more_page_link.is_displayed(), "More--> Culture link is not displayed in the Navigation Bar"
     more_page_link.click()
     WebDriverWait(driver, 10).until(ec.presence_of_element_located(
         (By.XPATH, "//h2[contains(text(),'Blavity is a tech company for forward thinking Bla')]")))
