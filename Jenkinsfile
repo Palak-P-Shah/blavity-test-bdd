@@ -10,7 +10,7 @@ pipeline {
         	env.PATH = "${dockerHome}/bin:${env.PATH}"
 	    }
     	}
-    	#agent { docker { image 'python:3.5.1' } }
+    	agent { docker { image 'python:3.5.1' } }
         stage('build') 
 	{
             steps 
