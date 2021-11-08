@@ -22,7 +22,7 @@ pipeline {
 	{
             steps 
 	    {
-                sh 'behave .\GUIAutomatedTests\features\Homepage.feature'
+                sh 'behave ./GUIAutomatedTests/features/Homepage.feature'
             }
         }
     }
