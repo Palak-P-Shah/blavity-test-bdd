@@ -1,28 +1,19 @@
 pipeline {
-    agent { dockerfile true }
-    stages 
-    {
-	stage('build') 
-	{
-            steps 
-	    {
+    agent none 
+    stages {
+        stage('Build') { 
+            agent {
+                docker {
+                    image 'python:3.5.1' 
+                }
+            }
+            steps {
                 sh 'python --version'
-            }
-        }
-	stage('install dependencies') 
-	{
-            steps 
-	    {
-                sh 'pip install behave'
+		sh 'pip --version'
 		sh 'pip install selenium'
+		sh 'pip install behave'
 		sh 'pip install webdriver-manager'
-            }
-        }
-	stage('test') 
-	{
-            steps 
-	    {
-                sh 'behave ./GUIAutomatedTests/features/Homepage.feature'
+		sh 'behave .\GUIAutomatedTests\features\opinion.feature'
             }
         }
     }
