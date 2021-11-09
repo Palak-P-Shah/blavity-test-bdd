@@ -13,7 +13,7 @@ pipeline {
 		sh 'pip install selenium'
 		sh 'pip install behave'
 		sh 'pip install webdriver-manager'
-		sh 'behave .\GUIAutomatedTests\features\opinion.feature'
+		sh 'behave ./GUIAutomatedTests/features/opinion.feature'
             }
         }
     }
