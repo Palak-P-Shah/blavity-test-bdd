@@ -26,6 +26,7 @@ jobs:
               pip install behave
               pip install selenium
               pip install webdriver-manager
+              pip install chromedriver-py
               pip list
               behave ./GUIAutomatedTests/features/Homepage.feature
            # sudo chmod 777 '/usr/local/bin/chromedriver'
