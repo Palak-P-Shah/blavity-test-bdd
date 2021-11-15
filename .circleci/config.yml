@@ -23,6 +23,9 @@ jobs:
           name: Run tests
           command: |  # use pipenv to install dependencies
               # chrome --version
+              pip install behave
+              pip install selenium
+              pip install webdriver-manager
               pip list
               behave ./GUIAutomatedTests/features/Homepage.feature
            # sudo chmod 777 '/usr/local/bin/chromedriver'
