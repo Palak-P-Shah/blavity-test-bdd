@@ -10,7 +10,7 @@ from nose.tools import assert_equal
 
 
 def environment():
-    print("")
+    # print("")
     driver.maximize_window()
     driver.get(url_name)
     time.sleep(5)
@@ -20,7 +20,7 @@ def environment():
 
 def page_load():
     WebDriverWait(driver, 40).until(ec.title_is("The Community for Black Creativity and News - Blavity News"))
-    assert_equal(driver.current_url, url_name)
+    # assert_equal(driver.current_url, url_name)
     pass
 
 
@@ -30,6 +30,7 @@ def post_page_load_pop_up():
             By.XPATH,
             "//div[@class='ub-emb-iframe-wrapper ub-emb-visible']//button[@type='button'][normalize-space()='×']")
         driver.execute_script("arguments[0].click();", event_promo_pop_up)
+
     except NoSuchElementException:
         print("event promo pop-up does not exist")
     try:
@@ -45,6 +46,8 @@ def post_page_load_pop_up():
     footer_xpath = driver.find_element(By.XPATH, "//button[text()='Accept']")
     driver.execute_script("arguments[0].click();", footer_xpath)
     assert_equal(driver.title, "The Community for Black Creativity and News - Blavity News")
+    assert driver.title == "The Community for Black Creativity and News - Blavity News",\
+        "the driver title is not matching"
     pass
 
 
