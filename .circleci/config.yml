@@ -2,9 +2,9 @@ general:
   artifacts:
     - "./tests/screenshots"
 version: 2.1 
-# orbs:
+orbs:
     # python: circleci/python@1.2
-    # browser-tools: circleci/browser-tools@1.2.3
+    browser-tools: circleci/browser-tools@1.2.3
 jobs:
   build-and-test: 
     docker:
