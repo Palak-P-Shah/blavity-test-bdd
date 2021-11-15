@@ -24,7 +24,7 @@ jobs:
            # google-chrome --version
            # chromedriver --version
            # sudo chmod 777 '/usr/local/bin/chromedriver'
-            behave ./GUIAutomatedTests/features navBar.
+            behave ./GUIAutomatedTests/features/navBar.feature
       - store_artifacts:
                   path: /tmp/test-results
                   destination: artifact-file
