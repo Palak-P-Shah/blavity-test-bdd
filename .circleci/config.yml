@@ -10,6 +10,7 @@ jobs:
     docker:
       - image: cimg/python:3.8
     steps:
+      - browser-tools/install-chrome
       - checkout
       - run:
           command: |
@@ -25,7 +26,7 @@ jobs:
               # chrome --version
               python3 -m venv venv
               . venv/bin/activate
-              browser-tools/install-chrome
+              # browser-tools/install-chrome
               pip install behave
               pip install selenium
               pip install webdriver-manager
