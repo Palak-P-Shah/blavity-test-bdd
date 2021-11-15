@@ -13,18 +13,18 @@ jobs:
       - checkout
       - run:
           command: |
-            python3 -m venv venv
-            . venv/bin/activate 
-            pip install -r requirements.txt
+              python3 -m venv venv
+              . venv/bin/activate 
+              pip install -r requirements.txt
       #- browser-tools/install-chrome
       #- browser-tools/install-chromedriver
       - run:
           name: Run tests
           command: |  # use pipenv to install dependencies
-           # google-chrome --version
-           # chromedriver --version
+              google-chrome --version
+              chromedriver --version
            # sudo chmod 777 '/usr/local/bin/chromedriver'
-            behave ./GUIAutomatedTests/features/navBar.feature
+              
       - store_artifacts:
                   path: /tmp/test-results
                   destination: artifact-file
