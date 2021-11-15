@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Run tests
           command: |  # use pipenv to install dependencies
-              google-chrome --version
+              chrome --version
               chromedriver --version
            # sudo chmod 777 '/usr/local/bin/chromedriver'
               
