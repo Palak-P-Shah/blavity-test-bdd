@@ -2,7 +2,7 @@ pipeline {
     agent none
     stages {
         stage('Build') { 
-            agent { docker 'dcc6955756f5' }
+            agent { docker 'python:3.5.1' }
             steps {
                 sh 'python --version'
 		sh 'pip --version'
