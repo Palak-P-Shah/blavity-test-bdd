@@ -32,8 +32,8 @@ jobs:
               pip install webdriver-manager
               # pip install chromedriver-py
               pip list
-              chrome --version
-              chromedriver --version
+              # chrome --version
+              # chromedriver --version
               behave ./GUIAutomatedTests/features/Homepage.feature
            # sudo chmod 777 '/usr/local/bin/chromedriver'
               
