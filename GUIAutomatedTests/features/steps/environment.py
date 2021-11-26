@@ -5,10 +5,10 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 options = Options()
-options.headless = False
-options.add_argument('--start-maximized')
+options.headless = True
+options.add_argument("no-sandbox")
+options.add_argument("--disable-extensions")
 options.add_argument("--headless")
-options.add_argument("--window-size=1920x1080")
 user_agent = \
     'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36 PTST/1.0'
 options.add_argument('user-agent={0}'.format(user_agent))
