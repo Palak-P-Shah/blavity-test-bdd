@@ -14,8 +14,6 @@ jobs:
       - checkout
       - run:
           command: |
-              python3 -m venv venv
-              . venv/bin/activate 
               pip install -r requirements.txt
             #  pip install chromedriver-py
       #- browser-tools/install-chrome
@@ -34,6 +32,7 @@ jobs:
               pip list
               # chrome --version
               # chromedriver --version
+              google-chrome --version
               behave ./GUIAutomatedTests/features/Homepage.feature
            # sudo chmod 777 '/usr/local/bin/chromedriver'
               
