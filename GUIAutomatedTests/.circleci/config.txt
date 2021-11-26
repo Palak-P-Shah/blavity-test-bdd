@@ -1,0 +1,47 @@
+general:
+  artifacts:
+    - "./tests/screenshots"
+version: 2.1 
+orbs:
+    # python: circleci/python@1.2
+    browser-tools: circleci/browser-tools@1.2.3
+jobs:
+  build-and-test: 
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - browser-tools/install-chrome
+      - checkout
+      - run:
+          command: |
+              pip install -r requirements.txt
+            #  pip install chromedriver-py
+      #- browser-tools/install-chrome
+      #- browser-tools/install-chromedriver
+      - run:
+          name: Run tests
+          command: |  # use pipenv to install dependencies
+              # chrome --version
+              python3 -m venv venv
+              . venv/bin/activate
+              # browser-tools/install-chrome
+              pip install behave
+              pip install selenium
+              pip install webdriver-manager
+              # pip install chromedriver-py
+              pip list
+              # chrome --version
+              # chromedriver --version
+              google-chrome --version
+              behave ./GUIAutomatedTests/features/Homepage.feature
+           # sudo chmod 777 '/usr/local/bin/chromedriver'
+              
+      - store_artifacts:
+                  path: /tmp/test-results
+                  destination: artifact-file
+      - store_test_results:
+                  path: /tmp/test-results
+workflows:
+  sample: 
+    jobs:
+      - build-and-test
